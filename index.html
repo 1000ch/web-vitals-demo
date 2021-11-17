@@ -6,9 +6,27 @@
     <script type="module">
       import {getCLS, getFID, getLCP} from 'https://unpkg.com/web-vitals?module';
 
-      getCLS(console.log);
-      getFID(console.log);
-      getLCP(console.log);
+      const cls = document.querySelector('#cls');
+      const fid = document.querySelector('#fid');
+      const lcp = document.querySelector('#lcp');
+
+      getCLS(data => {
+        cls.textContent = `cls: ${data.value}`;
+        console.log(data);
+      });
+      getFID(data => {
+        fid.textContent = `fid: ${data.value}`;
+        console.log(data);
+      });
+      getLCP(data => {
+        lcp.textContent = `lcp: ${data.value}`;
+        console.log(data);
+      });
     </script>
   </head>
+  <body>
+    <p id="cls">cls:</p>
+    <p id="fid">fid:</p>
+    <p id="lcp">lcp:</p>
+  </body>
 </html>
